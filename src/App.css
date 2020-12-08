@@ -14,7 +14,7 @@ h1 {
 	margin-left: 5rem;
 }
 
-button {
+.button {
 	display: block;
 	margin: 5rem auto 0;
 	border-radius: 30px;
@@ -23,4 +23,61 @@ button {
 	width: 30rem;
 	height: 6rem;
 	outline: none;
+}
+
+.sign_in_up_container {
+	background-color: #bcbaba;
+	height: 100vh;
+}
+.upper {
+	display: flex;
+	height: 40vh;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	border-bottom-left-radius: 2rem;
+	border-bottom-right-radius: 2rem;
+}
+.upper svg {
+	height: 17rem;
+	width: 17rem;
+}
+.bb {
+	display: flex;
+	justify-content: space-around;
+	margin-top: -4rem;
+}
+.bb a {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 21px;
+	color: black;
+}
+
+.form_info {
+	width: 80vw;
+	margin: 10rem auto;
+}
+
+input[type="text"],
+input[type="password"] {
+	width: 100%;
+	height: 3rem;
+	outline: none;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	margin-bottom: 5rem;
+	background-color: #bcbaba;
+}
+label {
+	margin-top: 1rem;
+}
+
+.red {
+	background-color: #ff4b3a;
+	color: #fff;
+}
+.mgTop_20 {
+	margin-top: 15rem;
 }

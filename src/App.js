@@ -18,7 +18,8 @@ function App() {
 				<span>Everyone</span>
 			</h1>
 			<OK style={{ width: "100vw", height: "50vh" }} />
-			<button>Get Started</button>
+
+			<button type="button">Get Started</button>
 		</div>
 	);
 }
