@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 //CSS
 import "./App.css";
 
@@ -19,7 +21,9 @@ function App() {
 			</h1>
 			<OK style={{ width: "100vw", height: "50vh" }} />
 
-			<button type="button">Get Started</button>
+			<Link to="signin" className="button link_button">
+				Get Started
+			</Link>
 		</div>
 	);
 }
