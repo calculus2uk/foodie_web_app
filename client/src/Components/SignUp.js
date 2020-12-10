@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+// SVG
 import { ReactComponent as Logo } from "../images/logo.svg";
 
 const SignUp = () => {
-	const [name, setName] = useState("");
+	const [username, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
-	const handleNameChange = (e) => {
-		setName(e.target.value);
+	const handleUserNameChange = (e) => {
+		setUserName(e.target.value);
 	};
 	const handleEmailChange = (e) => {
 		setEmail(e.target.value);
@@ -21,18 +23,35 @@ const SignUp = () => {
 	const handleConfirmPasswordChange = (e) => {
 		setConfirmPassword(e.target.value);
 	};
-	const signUpFormHandler = (e) => {
+	const signUpFormHandler = async (e) => {
 		e.preventDefault();
-		console.log(name);
 
 		try {
 			// Set Loading to True
 			// Make a request to register user with strapi
+
 			// Set loading to false
 			//Put token in local storage
 			// redirect user to page
+
+			const rawResponse = await fetch(
+				"https:localhost:1337/auth/local/register",
+				{
+					method: "POST",
+					headers: {
+						Accept: "application/json",
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ username, email, password }),
+				},
+			);
+			const content = await rawResponse.json();
+
+			console.log(content);
 		} catch (error) {
 			// Set Loading to false
+			//Show Error message
+			console.log("error in ....");
 		}
 	};
 	return (
@@ -47,14 +66,14 @@ const SignUp = () => {
 
 			<form onSubmit={signUpFormHandler} className="form_info">
 				<label>
-					Name: <br />
+					Userame: <br />
 					<input
 						type="text"
-						value={name}
+						value={username}
 						id="3"
-						placeholder="Name"
+						placeholder="Username"
 						required
-						onChange={handleNameChange}
+						onChange={handleUserNameChange}
 					/>
 				</label>
 				<label>
