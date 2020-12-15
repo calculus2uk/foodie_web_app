@@ -115,3 +115,23 @@ label {
 	left: 0.5rem;
 	margin-right: 1rem;
 }
+.food_cards_container {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: space-between;
+}
+
+.food_card {
+	width: 100px;
+	box-shadow: 0px 30px 60px rgba(57, 57, 57, 0.1);
+	border-radius: 30px;
+	background-color: #bcbaba;
+	margin: 1rem;
+	padding: 1rem;
+	height: 200px;
+}
+.cc {
+	width: 100%;
+
+	object-fit: cover;
+}
