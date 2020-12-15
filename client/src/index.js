@@ -4,19 +4,24 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //Components
 import reportWebVitals from "./reportWebVitals";
+
 //
-import App from "./App";
+import GetStarted from "./Components/GetStarted";
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
-//Css
+import App from "./App";
+
+//CSS
 import "./index.css";
 
+//
 const Root = () => (
 	<Router>
 		<Switch>
-			<Route component={App} exact path="/" />
+			<Route component={GetStarted} exact path="/" />
 			<Route component={SignIn} path="/signin" />
 			<Route component={SignUp} path="/signup" />
+			<Route component={App} path="/pr" />
 		</Switch>
 	</Router>
 );

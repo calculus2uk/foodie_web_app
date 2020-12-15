@@ -3,8 +3,10 @@ import { Link } from "react-router-dom";
 
 // SVG
 import { ReactComponent as Logo } from "../images/logo.svg";
-
-const SignUp = () => {
+//
+const API_URL = "http://localhost:1337";
+//
+const SignUp = (props) => {
 	const [username, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -34,20 +36,17 @@ const SignUp = () => {
 			//Put token in local storage
 			// redirect user to page
 
-			const rawResponse = await fetch(
-				"https:localhost:1337/auth/local/register",
-				{
-					method: "POST",
-					headers: {
-						Accept: "application/json",
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify({ username, email, password }),
+			const rawResponse = await fetch(`${API_URL}/auth/local/register`, {
+				method: "POST",
+				headers: {
+					Accept: "application/json",
+					"Content-Type": "application/json",
 				},
-			);
+				body: JSON.stringify({ username, email, password }),
+			});
 			const content = await rawResponse.json();
-
 			console.log(content);
+			props.history.push("/pr");
 		} catch (error) {
 			// Set Loading to false
 			//Show Error message
@@ -66,7 +65,7 @@ const SignUp = () => {
 
 			<form onSubmit={signUpFormHandler} className="form_info">
 				<label>
-					Userame: <br />
+					Username: <br />
 					<input
 						type="text"
 						value={username}
@@ -76,6 +75,7 @@ const SignUp = () => {
 						onChange={handleUserNameChange}
 					/>
 				</label>
+				<br />
 				<label>
 					Email Address: <br />
 					<input
